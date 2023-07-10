@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6146035511715185932}
   m_Layer: 0
   m_Name: PowerPellet
-  m_TagString: Untagged
+  m_TagString: PowerPellet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33,7 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4203956600945086798
 MeshFilter:
@@ -100,7 +100,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -117,7 +117,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6029098624787191466}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d34f6f366074d0448c25f4aeefc90d9, type: 3}
+  m_Script: {fileID: 11500000, guid: fe915a5316675754895f1027397b4a69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   score: 20

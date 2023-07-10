@@ -5,30 +5,53 @@ public class Pellet : MonoBehaviour
 {
 
     public int score = 10;
-    private bool isPowerPellet = false;
+    private bool isPowerPellet;
+    private Vector3 scaleChange;
+
+    private int frames;
     void Awake()
     {
+        frames = 0;
+        isPowerPellet = this.tag == "PowerPellet";
+        scaleChange = new Vector3(-0.01f, -0.01f, -0.01f);
 
+    }
+
+    void Start()
+    {
+        GameManager.instance.incrementPelletCount();
+    }
+
+    private void FixedUpdate()
+    {
+        if (isPowerPellet)
+        {
+            
+            transform.localScale += scaleChange;
+            frames++;
+            if (frames == 25)
+            {
+                transform.localScale *= -1;
+                frames = 0;
+            }
+        }
     }
 
     protected virtual void Eat()
     {
         if (isPowerPellet)
         {
-            // Call Power Pellet Script
-            FindObjectOfType<GameManager>().eatPowerPellet(this);
+            GameManager.instance.eatPowerPellet(this);
         }
         else {
-            FindObjectOfType<GameManager>().eatPellet(this);
+            GameManager.instance.eatPellet(this);
 
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Pellet has been collided with");
-        // Update to layer of Pacman
-        if (other.gameObject.layer == LayerMask.NameToLayer("Pacman"))
+        if (other.gameObject.tag == "Player")
         {
             Eat();
         }

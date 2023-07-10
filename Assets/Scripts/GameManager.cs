@@ -1,50 +1,59 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public Transform pellets;
-
     private int score;
+    private int pelletsLeft;
+
+    public static GameManager instance;
+
+    private void Awake()
+    {
+        instance = this;
+        pelletsLeft = 0;
+    }
 
     void Start()
     {
-        
+
     }
 
     void Update()
     {
-        
+
     }
+
 
     public void eatPowerPellet(Pellet pellet)
     {
         pellet.gameObject.SetActive(false);
         score += pellet.score;
-        Debug.Log("Power Pellet eaten");
     }
 
     public void eatPellet(Pellet pellet)
     {
         pellet.gameObject.SetActive(false);
         score += pellet.score;
-        Debug.Log("Pellet eaten");
-
-        if (!pelletsLeft())
+        pelletsLeft--;
+        
+        if (pelletsLeft == 0)
         {
             Debug.Log("All pellets have been eaten");
+            Debug.Log("Ending the game");
         }
+        
     }
 
-    private bool pelletsLeft()
+    public void incrementPelletCount()
     {
-        foreach (Transform pellet in pellets) {
-            if  (pellet.gameObject.activeSelf)
-            {
-                return true;
-            }
-        }
-        return false;
+        pelletsLeft++;
+    }
+
+    private void decrementPelletCount()
+    {
+        pelletsLeft--;
     }
 }
