@@ -6,11 +6,11 @@ public class scriptValery : MonoBehaviour
 {
     void Start()
     {
-        
+        Debug.Log("Hello :)");
     }
 
     void Update()
     {
-        Debug.Log("Hello :)");
+
     }
 }
