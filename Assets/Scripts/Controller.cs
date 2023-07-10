@@ -6,6 +6,7 @@ using DG.Tweening;
 
 public class Controller : MonoBehaviour
 {
+    public float speed = 1;
     private Vector3 currentDirection = Vector3.zero;
     private int wall;
     // Start is called before the first frame update
@@ -50,6 +51,6 @@ public class Controller : MonoBehaviour
         {
             transform.LookAt(moveTo);
         }
-        transform.DOMove(moveTo, 1).SetEase(Ease.Linear).OnComplete( () => Move() );
+        transform.DOMove(moveTo, 1 / speed).SetEase(Ease.Linear).OnComplete( () => Move() );
     }
 }
