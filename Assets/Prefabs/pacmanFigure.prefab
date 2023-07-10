@@ -120,6 +120,7 @@ GameObject:
   - component: {fileID: 6404643801964664834}
   - component: {fileID: 3710111078016453982}
   - component: {fileID: 2758187202473550928}
+  - component: {fileID: 2074129740875123152}
   m_Layer: 0
   m_Name: pacmanFigure
   m_TagString: Untagged
@@ -142,7 +143,7 @@ Transform:
   - {fileID: 370314771603217439}
   - {fileID: 2750156232652717774}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!33 &5953000773609902653
 MeshFilter:
@@ -242,6 +243,19 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5000001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2074129740875123152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3711382549198562989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80a6bbaf821f33044885fb9b4daf191a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
 --- !u!1 &4329186572759901945
 GameObject:
   m_ObjectHideFlags: 0
