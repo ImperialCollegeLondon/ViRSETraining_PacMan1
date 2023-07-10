@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ZacScript : MonoBehaviour
+public class PacmanMovement : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("Hello.");
+        
     }
 
     // Update is called once per frame
