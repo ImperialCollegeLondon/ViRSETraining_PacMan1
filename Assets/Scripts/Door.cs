@@ -17,7 +17,7 @@ public class Door : MonoBehaviour
 
         if (time > 2f && time < 2.1f)
         {
-            transform.DOMove(i_position + new Vector3(0, 1, 0), 3f).SetEase(Ease.Linear);
+            transform.DOMove(i_position + new Vector3(1, 0, 0), 3f).SetEase(Ease.Linear);
         }
     }
 }
