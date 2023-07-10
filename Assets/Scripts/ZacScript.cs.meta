@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< Updated upstream:Assets/Scripts/ZacScript.cs.meta
 guid: f9a720fcf7fe735459afdd197c185ff9
+=======
+guid: 362e8512781df704daf28de4915346b1
+>>>>>>> Stashed changes:Assets/Scripts/Controller.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2

@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
-{
+public static class GameManager {
     public Transform pellets;
+    [SerializeField]
+    public GameObject pellet;
 
     private int score;
 
