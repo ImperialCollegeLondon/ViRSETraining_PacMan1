@@ -85,12 +85,12 @@ public class Controller : MonoBehaviour
         if (moveTo.z < minZ)
         {
             transform.position += new Vector3(0, 0, dz);
-            moveTo += new Vector3(dz, 0, 0);
+            moveTo += new Vector3(0, 0, dz);
         }
         if (moveTo.z > maxZ)
         {
             transform.position -= new Vector3(0, 0, dz);
-            moveTo -= new Vector3(dz, 0, 0);
+            moveTo -= new Vector3(0, 0, dz);
         }
 
         transform.DOMove(moveTo, 1 / speed).SetEase(Ease.Linear).OnComplete( () => Move() );
