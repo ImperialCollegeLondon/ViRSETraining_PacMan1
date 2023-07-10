@@ -36,10 +36,18 @@ public class Controller : MonoBehaviour
 
     void Move()
     {
-        if (Physics.Raycast(transform.position, transform.position + currentDirection, 1))
+        Ray ray = new Ray(transform.position, currentDirection);
+        if (Physics.Raycast(ray, out RaycastHit hitinfo, 1))
         {
+            Debug.Log(hitinfo.collider.gameObject.name);
             currentDirection = Vector3.zero;
         }
-        transform.DOMove(transform.position + currentDirection, 1).OnComplete( () => Move() );
+
+        Debug.Log(currentDirection);
+        if (currentDirection != Vector3.zero)
+        {
+            transform.LookAt(currentDirection + transform.position);
+        }
+        transform.DOMove(transform.position + currentDirection, 1).SetEase(Ease.Linear).OnComplete( () => Move() );
     }
 }
