@@ -53,20 +53,18 @@ public class Controller : MonoBehaviour
 
 
         // Teleport
-        if (gameObject.transform.position.x < -14.5f)
+        if (gameObject.transform.position.x < -14f)
         {
-            //speed = 0.01f;
-            moveTo = new Vector3(14, 1, 3);
-            gameObject.transform.position = new Vector3(15, 1, 3);
-            gameObject.GetComponent<Rigidbody>().position = new Vector3(15, 1, 3);
+            moveTo = new Vector3(14, 1, 7);
+            gameObject.transform.position = new Vector3(15, 1, 7);
+            gameObject.GetComponent<Rigidbody>().position = new Vector3(15, 1, 7);
         }
 
-        if (gameObject.transform.position.x > 15.5f)
+        if (gameObject.transform.position.x > 15f)
         {
-            //speed = 0.01f;
-            moveTo = new Vector3(-13, 1, -7);
-            gameObject.transform.position = new Vector3(-14, 1, -7);
-            gameObject.GetComponent<Rigidbody>().position = new Vector3(-14, 1, -7);
+            moveTo = new Vector3(-13, 1, -3);
+            gameObject.transform.position = new Vector3(-14, 1, -3);
+            gameObject.GetComponent<Rigidbody>().position = new Vector3(-14, 1, -3);
         }
         transform.DOMove(moveTo, speed).SetEase(Ease.Linear).OnComplete( () => Move() );
     }
