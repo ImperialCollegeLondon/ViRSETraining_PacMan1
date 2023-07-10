@@ -9,6 +9,7 @@ public class Controller : MonoBehaviour
     public float speed = 1;
     public static Controller instance;
     public Vector3 currentDirection = Vector3.zero;
+    private Vector3 nextDirection = Vector3.zero;
 
     private int wall;
 
@@ -39,25 +40,25 @@ public class Controller : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            currentDirection = Vector3.forward;
+            nextDirection = Vector3.forward;
         }
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            currentDirection = Vector3.back;
+            nextDirection = Vector3.back;
         }
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            currentDirection = Vector3.left;
+            nextDirection = Vector3.left;
         }
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-            currentDirection = Vector3.right;
+            nextDirection = Vector3.right;
         }
     }
 
     void Move()
     {
-
+        currentDirection = nextDirection;
 
         Ray ray = new Ray(transform.position, currentDirection);
         if (Physics.Raycast(ray, .6f, wall))
