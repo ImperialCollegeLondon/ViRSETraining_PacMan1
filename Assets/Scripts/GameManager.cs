@@ -18,6 +18,13 @@ public class GameManager : MonoBehaviour
         
     }
 
+    public void eatPowerPellet(Pellet pellet)
+    {
+        pellet.gameObject.SetActive(false);
+        score += pellet.score;
+        Debug.Log("Power Pellet eaten");
+    }
+
     public void eatPellet(Pellet pellet)
     {
         pellet.gameObject.SetActive(false);

@@ -5,6 +5,7 @@ public class Pellet : MonoBehaviour
 {
 
     public int score = 10;
+    private bool isPowerPellet = false;
     void Awake()
     {
 
@@ -12,7 +13,15 @@ public class Pellet : MonoBehaviour
 
     protected virtual void Eat()
     {
-        FindObjectOfType<GameManager>().eatPellet(this);
+        if (isPowerPellet)
+        {
+            // Call Power Pellet Script
+            FindObjectOfType<GameManager>().eatPowerPellet(this);
+        }
+        else {
+            FindObjectOfType<GameManager>().eatPellet(this);
+
+        }
     }
 
     private void OnTriggerEnter(Collider other)
