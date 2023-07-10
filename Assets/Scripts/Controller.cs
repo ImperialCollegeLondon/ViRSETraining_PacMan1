@@ -7,10 +7,12 @@ using DG.Tweening;
 public class Controller : MonoBehaviour
 {
     private Vector3 currentDirection = Vector3.zero;
+    private int wall;
     // Start is called before the first frame update
     void Start()
     {
         Move();
+        wall = LayerMask.GetMask("Wall");
     }
 
     // Update is called once per frame
@@ -36,18 +38,18 @@ public class Controller : MonoBehaviour
 
     void Move()
     {
+        Vector3 moveTo = transform.position + currentDirection;
+
         Ray ray = new Ray(transform.position, currentDirection);
-        if (Physics.Raycast(ray, out RaycastHit hitinfo, 1))
+        if (Physics.Raycast(ray, 1, wall))
         {
-            Debug.Log(hitinfo.collider.gameObject.name);
             currentDirection = Vector3.zero;
         }
 
-        Debug.Log(currentDirection);
         if (currentDirection != Vector3.zero)
         {
-            transform.LookAt(currentDirection + transform.position);
+            transform.LookAt(moveTo);
         }
-        transform.DOMove(transform.position + currentDirection, 1).SetEase(Ease.Linear).OnComplete( () => Move() );
+        transform.DOMove(moveTo, 1).SetEase(Ease.Linear).OnComplete( () => Move() );
     }
 }
