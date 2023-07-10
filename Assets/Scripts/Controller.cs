@@ -7,8 +7,15 @@ using DG.Tweening;
 public class Controller : MonoBehaviour
 {
     public float speed = 1;
-    private Vector3 currentDirection = Vector3.zero;
+    public static Controller instance;
+
+    public Vector3 currentDirection = Vector3.zero;
     private int wall;
+
+    private void Awake()
+    {
+        instance = this;
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -39,13 +46,14 @@ public class Controller : MonoBehaviour
 
     void Move()
     {
-        Vector3 moveTo = transform.position + currentDirection;
+
 
         Ray ray = new Ray(transform.position, currentDirection);
-        if (Physics.Raycast(ray, 1, wall))
+        if (Physics.Raycast(ray, .6f, wall))
         {
             currentDirection = Vector3.zero;
         }
+        Vector3 moveTo = transform.position + currentDirection;
 
         if (currentDirection != Vector3.zero)
         {
