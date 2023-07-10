@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     private int score;
     private int pelletsLeft;
+    public UIScript scoreScript;
 
     public static GameManager instance;
 
@@ -44,7 +45,8 @@ public class GameManager : MonoBehaviour
             Debug.Log("All pellets have been eaten");
             Debug.Log("Ending the game");
         }
-        
+
+        scoreScript.AllScores(score);
     }
 
     public void incrementPelletCount()
