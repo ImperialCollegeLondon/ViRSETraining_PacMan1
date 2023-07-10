@@ -8,19 +8,30 @@ public class Controller : MonoBehaviour
 {
     public float speed = 1;
     public static Controller instance;
-
     public Vector3 currentDirection = Vector3.zero;
+
     private int wall;
+
+    public int minX = -4;
+    public int maxX = 4;
+    public int minZ = -4;
+    public int maxZ = 4;
+
+    private float dx;
+    private float dz;
 
     private void Awake()
     {
         instance = this;
+        
     }
     // Start is called before the first frame update
     void Start()
     {
         Move();
         wall = LayerMask.GetMask("Wall");
+        dx = maxX - minX;
+        dz = maxZ - minZ;
     }
 
     // Update is called once per frame
@@ -59,6 +70,29 @@ public class Controller : MonoBehaviour
         {
             transform.LookAt(moveTo);
         }
+
+        // Teleport
+        if (moveTo.x < minX)
+        {
+            transform.position += new Vector3(dx, 0, 0);
+            moveTo += new Vector3(dx, 0, 0);
+        }
+        if (moveTo.x > maxX)
+        {
+            transform.position -= new Vector3(dx, 0, 0);
+            moveTo -= new Vector3(dx, 0, 0);
+        }
+        if (moveTo.z < minZ)
+        {
+            transform.position += new Vector3(0, 0, dz);
+            moveTo += new Vector3(dz, 0, 0);
+        }
+        if (moveTo.z > maxZ)
+        {
+            transform.position -= new Vector3(0, 0, dz);
+            moveTo -= new Vector3(dz, 0, 0);
+        }
+
         transform.DOMove(moveTo, 1 / speed).SetEase(Ease.Linear).OnComplete( () => Move() );
     }
 }

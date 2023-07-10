@@ -16,7 +16,7 @@ public class AnimatingPacman : MonoBehaviour
         if(Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow) ||Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow) )
         {
             Debug.Log("in loop");
-            gameObject.transform.localEulerAngles = new Vector3(0f, 140 + Mathf.Sin(Time.time*Controller.instance.currentDirection.magnitude)*40, 0f);
+            gameObject.transform.localEulerAngles = new Vector3(0f, 140 + Mathf.Sin(Time.time*MouthSpeed)*40, 0f);
         }
     }
 }
