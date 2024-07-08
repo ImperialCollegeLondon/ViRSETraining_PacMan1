@@ -73299,6 +73299,7 @@ GameObject:
   - component: {fileID: 1883114871}
   - component: {fileID: 1883114870}
   - component: {fileID: 1883114869}
+  - component: {fileID: 1883114873}
   m_Layer: 3
   m_Name: Door
   m_TagString: Untagged
@@ -73392,6 +73393,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1883114873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1883114868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1571c71803a5cb74498c55280d956a52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doorOpen: 0
 --- !u!1 &1883278819
 GameObject:
   m_ObjectHideFlags: 0
