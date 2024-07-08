@@ -23,6 +23,7 @@ public class Pills : MonoBehaviour
             gameObject.SetActive(false);
             Debug.Log("collide!");
             PacManSound.instance.PlayChomp();
+            ScoreController.instance.Score(10);
         }
     }
 }
