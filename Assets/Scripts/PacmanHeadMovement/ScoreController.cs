@@ -1,12 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class ScoreController : MonoBehaviour
 {
 
     public static ScoreController instance;
+    public TMP_Text add_score;
+
+    private float current_score = 0;
     // Start is called before the first frame update
+    private void Awake()
+    {
+        instance = this;
+    }
     void Start()
     {
         
@@ -15,6 +23,13 @@ public class ScoreController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        add_score.text = ($"{current_score}");
+        Debug.Log(current_score);
+
+    }
+
+    public void Score(float score)
+    {
+        current_score += score;
     }
 }

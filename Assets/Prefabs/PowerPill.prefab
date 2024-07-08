@@ -331,7 +331,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   power: 0
-  t: 1.5
+  speed_rotate: 1
+  speed_size: 0.003
   y_shift: 0.3
   fruit: {fileID: 2837744264325307452}
 --- !u!1 &7220395908009685504
