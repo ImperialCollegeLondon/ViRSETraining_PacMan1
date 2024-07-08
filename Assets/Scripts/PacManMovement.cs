@@ -7,8 +7,8 @@ using Unity.VisualScripting.ReorderableList;
 
 public class PacManMovement : MonoBehaviour
 {
-    private float reloadTime = 0.25f;
-    private float lastMoveTime = 0f;
+//    private float reloadTime = 0.25f;
+//    private float lastMoveTime = 0f;
     private Vector3 movementStore;
     private float xMod;
     private float zMod;
