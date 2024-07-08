@@ -24,7 +24,7 @@ public class ScoreController : MonoBehaviour
     void Update()
     {
         add_score.text = ($"{current_score}");
-        Debug.Log(current_score);
+        //Debug.Log(current_score);
 
     }
 
