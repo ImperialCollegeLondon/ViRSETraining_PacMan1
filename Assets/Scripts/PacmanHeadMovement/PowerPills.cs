@@ -51,7 +51,7 @@ public class PowerPills : MonoBehaviour
             fruit.SetActive(false);
             Debug.Log("PowerPill collide!");
             power = true;
-            PacManSound.instance.PlayChomp();
+            //PacManSound.instance.PlayChomp();
         }
     }
 
