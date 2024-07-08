@@ -14,6 +14,8 @@ public class Modes : MonoBehaviour
     //Mode 2: Powerpill
     //Mode 3: Eyes returned
 
+
+    public GameObject head;
     public GameObject ghost;
     public GhostMovement ghostMovement;
     private float timer = 0f;
@@ -48,31 +50,24 @@ public class Modes : MonoBehaviour
     {
         if (time + 5f > Time.time)
         {
-            foreach (Transform child in transform)
+
+            timer += Time.deltaTime;
+            if (timer > 0.5f)
             {
-                if (child.name == "Head")
-                {
-                    timer += Time.deltaTime;
-                    if (timer > 0.5f)
-                    {
-                        timer = 0.0f;
-                        useColor1 = !useColor1;
-                        child.GetComponent<MeshRenderer>().material.color = useColor1 ? Color.blue : Color.green;
-                    }
-                }
+                timer = 0.0f;
+                useColor1 = !useColor1;
+                head.GetComponent<MeshRenderer>().material.color = useColor1 ? Color.blue : Color.green;
             }
         }
         else
         {
             ghostMovement.mode = 1;
-            foreach (Transform child in transform)
-            {
-                if (child.name == "Head")
-                {
-                    child.GetComponent<MeshRenderer>().material.color = color1;
-                }
-            }
+
+
+            head.GetComponent<MeshRenderer>().material.color = color1;
+
         }
+        
     }
     private void EyesReturn()
     {
