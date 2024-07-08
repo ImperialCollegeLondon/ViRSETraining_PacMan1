@@ -13,6 +13,8 @@ public class BasicPacManMovement : MonoBehaviour
     public Vector3 movementStore;
     public Eating eatingScript;
 
+    public GhostMovement ghostMovement;
+
     Dictionary<string, Vector3> movementStateDict = new Dictionary<string, Vector3>();
 
     void Start()
@@ -103,6 +105,23 @@ public class BasicPacManMovement : MonoBehaviour
         if (transform.position.x < -14f)
         {
             transform.position = new Vector3(14f, 0f, 0f);
+        }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.name == "Inky")
+        {
+            if (ghostMovement.mode == 2)
+            {
+
+            }else if ()
+            {
+
+            }else
+            {
+                ScoreController.instance.Lives();
+            }
+            //PacManSound.instance.PlayChomp();
         }
     }
 }
