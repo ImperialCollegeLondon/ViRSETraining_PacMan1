@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028331, g: 0.2257133, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -43058,7 +43058,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ghost: {fileID: 2091861511}
   ghostMovement: {fileID: 1146406694}
-  color1: {r: 0.2728839, g: 0, b: 1, a: 0}
+  color1: {r: 0, g: 0.67806053, b: 1, a: 0}
 --- !u!23 &1096567935
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -55158,12 +55158,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: ab038efe7a2b964458c39f538ac72c04, type: 2}
+      objectReference: {fileID: 2100000, guid: 007310ecb59df4645b23f4547f13cd4b, type: 2}
     - target: {fileID: 2110991184353130801, guid: 24739f789e6ba914caf8480cd0e6a5c2,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: ab038efe7a2b964458c39f538ac72c04, type: 2}
+      objectReference: {fileID: 2100000, guid: 007310ecb59df4645b23f4547f13cd4b, type: 2}
     - target: {fileID: 3916624735493175898, guid: 24739f789e6ba914caf8480cd0e6a5c2,
         type: 3}
       propertyPath: m_Name
@@ -55173,7 +55173,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: ab038efe7a2b964458c39f538ac72c04, type: 2}
+      objectReference: {fileID: 2100000, guid: 007310ecb59df4645b23f4547f13cd4b, type: 2}
     - target: {fileID: 4889194329471543014, guid: 24739f789e6ba914caf8480cd0e6a5c2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -55228,12 +55228,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: ab038efe7a2b964458c39f538ac72c04, type: 2}
+      objectReference: {fileID: 2100000, guid: 007310ecb59df4645b23f4547f13cd4b, type: 2}
     - target: {fileID: 6227106293163901792, guid: 24739f789e6ba914caf8480cd0e6a5c2,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: ab038efe7a2b964458c39f538ac72c04, type: 2}
+      objectReference: {fileID: 2100000, guid: 007310ecb59df4645b23f4547f13cd4b, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -9,6 +9,8 @@ public class ScoreController : MonoBehaviour
     public static ScoreController instance;
     public TMP_Text add_score;
     public TMP_Text add_score_world;
+    public TMP_Text end_score;
+    public TMP_Text end_board_text;
 
     private float current_score = 0;
     private float current_live = 3;
@@ -21,6 +23,8 @@ public class ScoreController : MonoBehaviour
     public GameObject heart2_w;
     public GameObject heart1_w;
 
+    public GameObject end_board;
+
     // Start is called before the first frame update
     private void Awake()
     {
@@ -28,7 +32,7 @@ public class ScoreController : MonoBehaviour
     }
     void Start()
     {
-        
+        //end_board.SetActive(false);
     }
 
     // Update is called once per frame
@@ -50,8 +54,11 @@ public class ScoreController : MonoBehaviour
         }
         if (current_live == 0)
         {
+            end_board.SetActive(true);
             heart1.SetActive(false);
             heart1_w.SetActive(false);
+            end_score.text = ($"{current_score}");
+            end_board_text.text = ("You Lose");
         }
 
     }
