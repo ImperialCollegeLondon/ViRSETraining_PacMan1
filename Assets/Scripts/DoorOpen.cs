@@ -7,8 +7,13 @@ using UnityEngine;
 public class DoorOpen : MonoBehaviour
 {
     private float doorTimer;
-    private bool doorOpen;
+    public bool doorOpen;
 
+
+    private void Awake()
+    {
+        doorOpen = false;
+    }
     void Start()
     {
         doorTimer = Time.time;
