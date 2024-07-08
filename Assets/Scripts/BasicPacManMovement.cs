@@ -30,31 +30,66 @@ public class BasicPacManMovement : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.W))
             {
-                transform.DOMove(transform.position + Vector3.forward, reloadTime).SetEase(Ease.Linear);
-                lastMoveTime = Time.time;
-                movementStore = movementStateDict["forward"];
-                eatingScript.PlayAnimation(true);
+                Ray ray = new Ray(new Vector3(transform.position.x, -0.499f, transform.position.z), movementStateDict["forward"]);
+                if (!Physics.Raycast(ray, out RaycastHit hitInfo, 1))
+                {
+                    transform.DOMove(transform.position + Vector3.forward, reloadTime).SetEase(Ease.Linear);
+                    lastMoveTime = Time.time;
+                    movementStore = movementStateDict["forward"];
+                    eatingScript.PlayAnimation(true);
+                }
+                else
+                {
+                    eatingScript.PlayAnimation(false);
+                }
             }
             if (Input.GetKeyDown(KeyCode.A))
             {
-                transform.DOMove(transform.position + Vector3.left, reloadTime).SetEase(Ease.Linear);
-                lastMoveTime = Time.time;
-                movementStore = movementStateDict["left"];
-                eatingScript.PlayAnimation(true);
+                Ray ray = new Ray(new Vector3(transform.position.x, -0.499f, transform.position.z), movementStateDict["left"]);
+                if (!Physics.Raycast(ray, out RaycastHit hitInfo, 1))
+                {
+                    transform.DOMove(transform.position + Vector3.left, reloadTime).SetEase(Ease.Linear);
+                    lastMoveTime = Time.time;
+                    movementStore = movementStateDict["left"];
+                    eatingScript.PlayAnimation(true);
+                }
+                else
+                {
+                    eatingScript.PlayAnimation(false);
+                }
             }
+
             if (Input.GetKeyDown(KeyCode.S))
             {
-                transform.DOMove(transform.position + Vector3.back, reloadTime).SetEase(Ease.Linear);
-                lastMoveTime = Time.time;
-                movementStore = movementStateDict["back"];
-                eatingScript.PlayAnimation(true);
+                Ray ray = new Ray(new Vector3(transform.position.x, -0.499f, transform.position.z), movementStateDict["back"]);
+                if (!Physics.Raycast(ray, out RaycastHit hitInfo, 1))
+                {
+                    transform.DOMove(transform.position + Vector3.back, reloadTime).SetEase(Ease.Linear);
+                    lastMoveTime = Time.time;
+                    movementStore = movementStateDict["back"];
+                    eatingScript.PlayAnimation(true);
+
+                }
+                else
+                {
+                    eatingScript.PlayAnimation(false);
+                }
             }
-            if (Input.GetKeyDown(KeyCode.D))
+
+                if (Input.GetKeyDown(KeyCode.D))
             {
-                transform.DOMove(transform.position + Vector3.right, reloadTime).SetEase(Ease.Linear);
+                Ray ray = new Ray(new Vector3(transform.position.x, -0.499f, transform.position.z), movementStateDict["right"]);
+                if (!Physics.Raycast(ray, out RaycastHit hitInfo, 1))
+                {
+                    transform.DOMove(transform.position + Vector3.right, reloadTime).SetEase(Ease.Linear);
                 lastMoveTime = Time.time;
                 movementStore = movementStateDict["right"];
                 eatingScript.PlayAnimation(true);
+                }
+                else
+                {
+                    eatingScript.PlayAnimation(false);
+                }
             }
         }
     }
