@@ -114,10 +114,8 @@ public class BasicPacManMovement : MonoBehaviour
             if (ghostMovement.mode == 2)
             {
 
-            }else if ()
-            {
-
-            }else
+            }
+            else
             {
                 ScoreController.instance.Lives();
             }
