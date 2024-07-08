@@ -26,6 +26,7 @@ public class BasicPacManMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // movement and collision detection
         if (Time.time >= lastMoveTime + reloadTime)
         {
             if (Input.GetKeyDown(KeyCode.W))
@@ -91,6 +92,17 @@ public class BasicPacManMovement : MonoBehaviour
                     eatingScript.PlayAnimation(false);
                 }
             }
+        }
+        
+        // teleportation
+        if (transform.position.x > 14f)
+        {
+            transform.position = new Vector3(-14f, 0f, 0f);
+        }
+
+        if (transform.position.x < -14f)
+        {
+            transform.position = new Vector3(14f, 0f, 0f);
         }
     }
 }
