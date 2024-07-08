@@ -6,13 +6,15 @@ public class PacManRotation : MonoBehaviour
 {
     public BasicPacManMovement movementScript;
 
-    // Start is called before the first frame update
+    // apply to pacman itself (child of empty game object parent)
+
+
     void Start()
     {
         
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         if (movementScript.movementStore == Vector3.forward)

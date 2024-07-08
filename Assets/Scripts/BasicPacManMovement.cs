@@ -5,6 +5,9 @@ using DG.Tweening;
 
 public class BasicPacManMovement : MonoBehaviour
 {
+
+    // apply to empty game object parent of pacman
+
     private float reloadTime = 0.25f;
     private float lastMoveTime = -0.25f;
     public Vector3 movementStore;
