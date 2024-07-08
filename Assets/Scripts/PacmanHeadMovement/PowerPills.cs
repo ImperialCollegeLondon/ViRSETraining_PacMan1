@@ -48,9 +48,10 @@ public class PowerPills : MonoBehaviour
     {
         if (other.gameObject.name == "PacManRoot")
         {
-            gameObject.SetActive(false);
+            fruit.SetActive(false);
             Debug.Log("PowerPill collide!");
             power = true;
+            PacManSound.instance.PlayChomp();
         }
     }
 
