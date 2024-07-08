@@ -113,11 +113,46 @@ public class BasicPacManMovement : MonoBehaviour
         {
             if (ghostMovement.mode == 2)
             {
-
-            }else if ()
-            {
-
+                ghostMovement.mode = 3;
+                ScoreController.instance.Score(200);
             }else
+            {
+                ScoreController.instance.Lives();
+            }
+            //PacManSound.instance.PlayChomp();
+        }
+        if (other.gameObject.name == "Pinky")
+        {
+            if (ghostMovement.mode == 2)
+            {
+                ghostMovement.mode = 3;
+                ScoreController.instance.Score(200);
+            }else
+            {
+                ScoreController.instance.Lives();
+            }
+            //PacManSound.instance.PlayChomp();
+        }
+        if (other.gameObject.name == "Blinky")
+        {
+            if (ghostMovement.mode == 2)
+            {
+                ghostMovement.mode = 3;
+                ScoreController.instance.Score(200);
+            }else
+            {
+                ScoreController.instance.Lives();
+            }
+            //PacManSound.instance.PlayChomp();
+        }
+        if (other.gameObject.name == "Clyde")
+        {
+            if (ghostMovement.mode == 2)
+            {
+                ghostMovement.mode = 3;
+                ScoreController.instance.Score(200);
+            }
+            else
             {
                 ScoreController.instance.Lives();
             }
