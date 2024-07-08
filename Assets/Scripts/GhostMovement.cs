@@ -9,6 +9,7 @@ public class GhostMovement : MonoBehaviour
     private float reloadTime = 0.25f;
     private float lastMoveTime = -0.25f;
     private Vector3 lastMovement;
+    public int mode;
 
     List<Vector3> possibleMovements = new List<Vector3>();
 
