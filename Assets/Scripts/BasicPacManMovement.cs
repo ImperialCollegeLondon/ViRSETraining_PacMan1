@@ -26,9 +26,10 @@ public class BasicPacManMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // movement and collision detection
         if (Time.time >= lastMoveTime + reloadTime)
         {
-            if (Input.GetKeyDown(KeyCode.W))
+            if (Input.GetKey(KeyCode.W))
             {
                 Ray ray = new Ray(new Vector3(transform.position.x, -0.499f, transform.position.z), movementStateDict["forward"]);
                 if (!Physics.Raycast(ray, out RaycastHit hitInfo, 1))
@@ -43,7 +44,7 @@ public class BasicPacManMovement : MonoBehaviour
                     eatingScript.PlayAnimation(false);
                 }
             }
-            if (Input.GetKeyDown(KeyCode.A))
+            if (Input.GetKey(KeyCode.A))
             {
                 Ray ray = new Ray(new Vector3(transform.position.x, -0.499f, transform.position.z), movementStateDict["left"]);
                 if (!Physics.Raycast(ray, out RaycastHit hitInfo, 1))
@@ -59,7 +60,7 @@ public class BasicPacManMovement : MonoBehaviour
                 }
             }
 
-            if (Input.GetKeyDown(KeyCode.S))
+            if (Input.GetKey(KeyCode.S))
             {
                 Ray ray = new Ray(new Vector3(transform.position.x, -0.499f, transform.position.z), movementStateDict["back"]);
                 if (!Physics.Raycast(ray, out RaycastHit hitInfo, 1))
@@ -76,7 +77,7 @@ public class BasicPacManMovement : MonoBehaviour
                 }
             }
 
-                if (Input.GetKeyDown(KeyCode.D))
+                if (Input.GetKey(KeyCode.D))
             {
                 Ray ray = new Ray(new Vector3(transform.position.x, -0.499f, transform.position.z), movementStateDict["right"]);
                 if (!Physics.Raycast(ray, out RaycastHit hitInfo, 1))
@@ -91,6 +92,17 @@ public class BasicPacManMovement : MonoBehaviour
                     eatingScript.PlayAnimation(false);
                 }
             }
+        }
+        
+        // teleportation
+        if (transform.position.x > 14f)
+        {
+            transform.position = new Vector3(-14f, 0f, 0f);
+        }
+
+        if (transform.position.x < -14f)
+        {
+            transform.position = new Vector3(14f, 0f, 0f);
         }
     }
 }

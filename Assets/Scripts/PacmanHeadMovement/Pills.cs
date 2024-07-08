@@ -24,7 +24,5 @@ public class Pills : MonoBehaviour
             Debug.Log("collide!");
             PacManSound.instance.PlayChomp();
         }
-
-
     }
 }
