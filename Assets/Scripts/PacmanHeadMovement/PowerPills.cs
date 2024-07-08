@@ -46,15 +46,23 @@ public class PowerPills : MonoBehaviour
         }
     }
 
-        private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.name == "PacManRoot")
         {
             fruit.SetActive(false);
             Debug.Log("PowerPill collide!");
             power = true;
-            ScoreController.instance.Score(50);
+            PowerPillEatenTime.instance.eatenTime = Time.time;
+            foreach (GameObject ghost in PowerPillEatenTime.instance.ghosts)
+            {
+                if (ghost.GetComponent<GhostMovement>().mode == 1)
+                {
+                    ghost.GetComponent<GhostMovement>().mode = 2;
+                }
+            }
             //PacManSound.instance.PlayChomp();
         }
     }
+
 }
