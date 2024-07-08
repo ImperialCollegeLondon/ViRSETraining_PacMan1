@@ -12,6 +12,9 @@ public class GhostMovement : MonoBehaviour
     public int mode;
     public float rayHeight;
 
+    private bool doorOpen;
+    private float doorTimer;
+
 
     List<Vector3> possibleMovements = new List<Vector3>();
 
@@ -25,7 +28,8 @@ public class GhostMovement : MonoBehaviour
 
 
     void Start()
-    {     
+    {
+        doorTimer = Time.time;
         movementStateDict.Add("forward", Vector3.forward);
         movementStateDict.Add("back", Vector3.back);
         movementStateDict.Add("left", Vector3.left);
@@ -33,7 +37,7 @@ public class GhostMovement : MonoBehaviour
     }
 
    
-    void Update()
+    void FixedUpdate()
     {
         LayerMask wallsOnly = LayerMask.GetMask("Wall");
 
@@ -72,18 +76,31 @@ public class GhostMovement : MonoBehaviour
 
             else if (possibleMovements.Count > 1)
             {
-                Debug.Log(possibleMovements.Count);
+                if (doorOpen == false && Time.time > doorTimer + 3f && possibleMovements.Contains(movementStateDict["forward"]))
+                {
+                    transform.DOMove(transform.position + movementStateDict["forward"], reloadTime).SetEase(Ease.Linear);
+                    doorOpen = true;
+                    lastMovement = movementStateDict["forward"];
+                    lastMoveTime = Time.time;
+                }
+                else
+                {
+                    if (doorOpen && transform.position.z == 2)
+                    {
+                        if (transform.position.x <= -6 && transform.position.x >= -8)
+                        {
+                            possibleMovements.Remove(movementStateDict["back"]);
+                        }
+                    }
 
-                possibleMovements.Remove(ReverseMoveFinder());
-                int randomMovement = Random.Range(0, possibleMovements.Count);
+                    possibleMovements.Remove(ReverseMoveFinder());
 
-                Debug.Log(randomMovement);
-                Debug.Log(possibleMovements.Count);
+                    int randomMovement = Random.Range(0, possibleMovements.Count);
 
-                transform.DOMove(transform.position + possibleMovements[randomMovement], reloadTime).SetEase(Ease.Linear);
-                lastMovement = possibleMovements[randomMovement];
-                lastMoveTime = Time.time;
-
+                    transform.DOMove(transform.position + possibleMovements[randomMovement], reloadTime).SetEase(Ease.Linear);
+                    lastMovement = possibleMovements[randomMovement];
+                    lastMoveTime = Time.time;
+                }
             }
 
             else
