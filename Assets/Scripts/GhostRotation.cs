@@ -13,7 +13,7 @@ public class GhostRotation : MonoBehaviour
 
     void Update()
     {
-        if (movementScript.lastMovement == Vector3.forward)
+        if (movementScript.lastMovement == Vector3.back)
         {
             transform.localEulerAngles = Vector3.zero;
         }
@@ -21,7 +21,7 @@ public class GhostRotation : MonoBehaviour
         {
             transform.localEulerAngles = new Vector3(0f, 90f, 0f);
         }
-        if (movementScript.lastMovement == Vector3.back)
+        if (movementScript.lastMovement == Vector3.forward)
         {
             transform.localEulerAngles = new Vector3(0f, 180f, 0f);
         }
