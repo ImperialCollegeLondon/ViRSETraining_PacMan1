@@ -6,86 +6,55 @@ using UnityEngine;
 public class PowerPills : MonoBehaviour
 {
     public bool power = false;
-    public float t;
-    private float count = 1;
+    public float speed_rotate;
+    public float speed_size;
+    private bool size_up = true;
     public float y_shift;
+
     public GameObject fruit;
     // Start is called before the first frame update
     void Start()
     {
-        DOVirtual.DelayedCall(t, () => ChangePowerPill());
-        fruit.transform.DOScale(new Vector3(0.5f, 0.5f, 0.5f), t);
+
+        //DOVirtual.DelayedCall(t, () => ChangePowerPill());
+        //fruit.transform.DOScale(new Vector3(0.5f, 0.5f, 0.5f), t);
     }
 
     // Update is called once per frame
     void Update()
     {
         //rotate
-        fruit.transform.DORotate(new Vector3(0f, 0.5f * count, 0f), t);
-        count++;
+        fruit.transform.Rotate(0f, 1f * speed_rotate, 0f, Space.Self);
 
-        //size
+        //size up and down
         if (fruit.transform.localScale.x > 1.59f)
         {
-            fruit.transform.DOScale(new Vector3(0.7f, 0.7f, 0.7f), t);
+            size_up = false;
         }
         else if (fruit.transform.localScale.x < 0.71f)
         {
-            fruit.transform.DOScale(new Vector3(1.6f, 1.6f, 1.6f), t);
+            size_up = true;
         }
-        /*//size
-        if (transform.localScale.x == 0.6f)
+
+        if (size_up == false)
         {
-            transform.DOScale(new Vector3(0.3f, 0.3f, 0.3f), t*0.5f);
+            fruit.transform.localScale += new Vector3(-1f * speed_size, -1f * speed_size, -1f * speed_size);
         }
-        else if (transform.localScale.x == 0.3f)
+        else if (size_up == true)
         {
-            transform.DOScale(new Vector3(0.6f, 0.6f, 0.6f), t * 0.5f);
-        }*/
+            fruit.transform.localScale += new Vector3(1f * speed_size, 1f * speed_size, 1f * speed_size);
+        }
     }
 
-    private void OnTriggerEnter(Collider other)
+        private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.name == "PacManRoot")
         {
             fruit.SetActive(false);
             Debug.Log("PowerPill collide!");
             power = true;
-            PacManSound.instance.PlayChomp();
+            ScoreController.instance.Score(100);
+            //PacManSound.instance.PlayChomp();
         }
     }
-
-    public void ChangePowerPill()
-    {
-        /*// change size
-        if (transform.localScale.x > 0.45)
-        {
-            fruit.transform.DOScale(new Vector3(0.3f, 0.3f, 0.3f), t);
-        }
-        else if (transform.localScale.x < 0.45)
-        {
-            fruit.transform.DOScale(new Vector3(0.6f, 0.6f, 0.6f), t);
-        }
-
-        if (transform.position.y == 0)
-        {
-            Vector3 pos = transform.localPosition;
-            fruit.transform.DOMove(pos + new Vector3(0f,0.5f * y_shift,0f), t*1f).SetEase(Ease.OutCubic);
-
-        }
-        else if (transform.position.y > 0)
-        {
-            Vector3 pos = transform.localPosition;
-            fruit.transform.DOMove(pos + new Vector3(0f, -1f * y_shift, 0f), t * 1f).SetEase(Ease.OutCubic);
-        }
-        else if (transform.position.y < 0)
-        {
-            Vector3 pos = transform.localPosition;
-            fruit.transform.DOMove(pos + new Vector3(0f,1f * y_shift, 0f), t * 1f).SetEase(Ease.OutCubic);
-        }
-
-        DOVirtual.DelayedCall(t, () => ChangePowerPill());*/
-
-    }
-
 }
