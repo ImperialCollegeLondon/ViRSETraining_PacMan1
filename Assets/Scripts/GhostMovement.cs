@@ -8,7 +8,7 @@ public class GhostMovement : MonoBehaviour
 {
     private float reloadTime = 0.25f;
     private float lastMoveTime = -0.25f;
-    private Vector3 lastMovement;
+    public Vector3 lastMovement;
     public int mode;
     public float rayHeight;
 
