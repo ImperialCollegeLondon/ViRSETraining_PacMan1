@@ -14,7 +14,6 @@ public class Modes : MonoBehaviour
     //Mode 3: Eyes returned
 
     public GameObject ghost;
-    private bool flicker = true;
     public GhostMovement ghostMovement;
     private float timer = 0f;
     private bool useColor1 = true;
