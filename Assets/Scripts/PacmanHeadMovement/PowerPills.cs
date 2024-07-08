@@ -12,7 +12,6 @@ public class PowerPills : MonoBehaviour
     public float y_shift;
 
     public GameObject fruit;
-    public float timeCollided;
     // Start is called before the first frame update
     void Start()
     {
@@ -54,18 +53,8 @@ public class PowerPills : MonoBehaviour
             fruit.SetActive(false);
             Debug.Log("PowerPill collide!");
             power = true;
-
-            PowerPillEatenTime.instance.eatenTime = Time.time;
-            foreach (GameObject ghost in PowerPillEatenTime.instance.ghosts)
-            {
-                if (ghost.GetComponent<GhostMovement>().mode == 1)
-                {
-                    ghost.GetComponent<GhostMovement>().mode = 2;
-                }
-            }
-
-            ScoreController.instance.Score(100);
-            PacManSound.instance.PlayChomp();
+            ScoreController.instance.Score(50);
+            //PacManSound.instance.PlayChomp();
         }
     }
 }
