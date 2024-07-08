@@ -30220,7 +30220,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -76687,7 +76687,6 @@ SceneRoots:
   - {fileID: 1072353051}
   - {fileID: 1101757986}
   - {fileID: 610352943}
-  - {fileID: 1613313184}
   - {fileID: 65680631}
   - {fileID: 2146521566}
   - {fileID: 1638462005}
@@ -76712,6 +76711,7 @@ SceneRoots:
   - {fileID: 652775342}
   - {fileID: 899866602}
   - {fileID: 2096997304}
+  - {fileID: 1613313184}
   - {fileID: 94793886}
   - {fileID: 543582191}
   - {fileID: 884974888}

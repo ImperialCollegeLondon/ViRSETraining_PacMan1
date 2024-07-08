@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Pills : MonoBehaviour
-{
-
-    
+{    
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +22,7 @@ public class Pills : MonoBehaviour
         {
             gameObject.SetActive(false);
             Debug.Log("collide!");
+            PacManSound.instance.PlayChomp();
         }
 
 
