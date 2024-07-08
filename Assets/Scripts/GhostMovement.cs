@@ -60,6 +60,7 @@ public class GhostMovement : MonoBehaviour
             if (possibleMovements.Count == 1)
             {
                 transform.DOMove(transform.position + possibleMovements[0], reloadTime).SetEase(Ease.Linear);
+                lastMovement = possibleMovements[0];
             }
 
             
@@ -67,6 +68,7 @@ public class GhostMovement : MonoBehaviour
             else
             {
                 possibleMovements.Remove(ReverseMoveFinder());
+
             }
 
         }
