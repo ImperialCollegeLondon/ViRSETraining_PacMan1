@@ -10,6 +10,8 @@ public class GhostMovement : MonoBehaviour
     private float lastMoveTime = -0.25f;
     private Vector3 lastMovement;
     public int mode;
+    public float rayHeight;
+
 
     List<Vector3> possibleMovements = new List<Vector3>();
 
@@ -23,7 +25,7 @@ public class GhostMovement : MonoBehaviour
 
 
     void Start()
-    {
+    {     
         movementStateDict.Add("forward", Vector3.forward);
         movementStateDict.Add("back", Vector3.back);
         movementStateDict.Add("left", Vector3.left);
@@ -33,26 +35,28 @@ public class GhostMovement : MonoBehaviour
    
     void Update()
     {
+        LayerMask wallsOnly = LayerMask.GetMask("Wall");
+
         if (Time.time >= lastMoveTime + reloadTime)
         {
-            Ray forwardRay = new Ray(new Vector3(transform.position.x, -0.499f, transform.position.z), movementStateDict["forward"]);
-            Ray backRay = new Ray(new Vector3(transform.position.x, -0.499f, transform.position.z), movementStateDict["back"]);
-            Ray leftRay = new Ray(new Vector3(transform.position.x, -0.499f, transform.position.z), movementStateDict["left"]);
-            Ray rightRay = new Ray(new Vector3(transform.position.x, -0.499f, transform.position.z), movementStateDict["right"]);
+            Ray forwardRay = new Ray(new Vector3(transform.position.x, rayHeight, transform.position.z), movementStateDict["forward"]);
+            Ray backRay = new Ray(new Vector3(transform.position.x, rayHeight, transform.position.z), movementStateDict["back"]);
+            Ray leftRay = new Ray(new Vector3(transform.position.x, rayHeight, transform.position.z), movementStateDict["left"]);
+            Ray rightRay = new Ray(new Vector3(transform.position.x, rayHeight, transform.position.z), movementStateDict["right"]);
 
-            if (!Physics.Raycast(forwardRay, out RaycastHit forwardHitInfo, 1))
+            if (!Physics.Raycast(forwardRay, out RaycastHit forwardHitInfo, 1, wallsOnly))
             {
                 possibleMovements.Add(movementStateDict["forward"]);
             }
-            if (!Physics.Raycast(backRay, out RaycastHit backHitInfo, 1))
+            if (!Physics.Raycast(backRay, out RaycastHit backHitInfo, 1, wallsOnly))
             {
                 possibleMovements.Add(movementStateDict["back"]);
             }
-            if (!Physics.Raycast(leftRay, out RaycastHit leftHitInfo, 1))
+            if (!Physics.Raycast(leftRay, out RaycastHit leftHitInfo, 1, wallsOnly))
             {
                 possibleMovements.Add(movementStateDict["left"]);
             }
-            if (!Physics.Raycast(rightRay, out RaycastHit rightHitInfo, 1))
+            if (!Physics.Raycast(rightRay, out RaycastHit rightHitInfo, 1, wallsOnly))
             {
                 possibleMovements.Add(movementStateDict["right"]);
             }
@@ -61,17 +65,43 @@ public class GhostMovement : MonoBehaviour
             {
                 transform.DOMove(transform.position + possibleMovements[0], reloadTime).SetEase(Ease.Linear);
                 lastMovement = possibleMovements[0];
+                lastMoveTime = Time.time;
             }
 
             
 
+            else if (possibleMovements.Count > 1)
+            {
+                Debug.Log(possibleMovements.Count);
+
+                possibleMovements.Remove(ReverseMoveFinder());
+                int randomMovement = Random.Range(0, possibleMovements.Count);
+
+                Debug.Log(randomMovement);
+                Debug.Log(possibleMovements.Count);
+
+                transform.DOMove(transform.position + possibleMovements[randomMovement], reloadTime).SetEase(Ease.Linear);
+                lastMovement = possibleMovements[randomMovement];
+                lastMoveTime = Time.time;
+
+            }
+
             else
             {
-                possibleMovements.Remove(ReverseMoveFinder());
-
+                lastMoveTime = -0.25f;
             }
 
         }
         possibleMovements.Clear();
+        
+        if (transform.position.x > 14f)
+        {
+            transform.position = new Vector3(-14f, 0f, 0f);
+        }
+
+        if (transform.position.x < -14f)
+        {
+            transform.position = new Vector3(14f, 0f, 0f);
+        }
     }
 }
