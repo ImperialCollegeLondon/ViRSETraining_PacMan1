@@ -37,7 +37,7 @@ public class GhostMovement : MonoBehaviour
     }
 
    
-    void Update()
+    void FixedUpdate()
     {
         LayerMask wallsOnly = LayerMask.GetMask("Wall");
 
@@ -85,14 +85,22 @@ public class GhostMovement : MonoBehaviour
                 }
                 else
                 {
+                    if (doorOpen && transform.position.z == 2)
+                    {
+                        if (transform.position.x <= -6 && transform.position.x >= -8)
+                        {
+                            possibleMovements.Remove(movementStateDict["back"]);
+                        }
+                    }
+
                     possibleMovements.Remove(ReverseMoveFinder());
+
                     int randomMovement = Random.Range(0, possibleMovements.Count);
 
                     transform.DOMove(transform.position + possibleMovements[randomMovement], reloadTime).SetEase(Ease.Linear);
                     lastMovement = possibleMovements[randomMovement];
                     lastMoveTime = Time.time;
                 }
-
             }
 
             else
