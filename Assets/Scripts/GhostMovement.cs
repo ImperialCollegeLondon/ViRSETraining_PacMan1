@@ -61,6 +61,7 @@ public class GhostMovement : MonoBehaviour
             {
                 transform.DOMove(transform.position + possibleMovements[0], reloadTime).SetEase(Ease.Linear);
                 lastMovement = possibleMovements[0];
+                lastMoveTime = Time.time;
             }
 
             
@@ -68,6 +69,10 @@ public class GhostMovement : MonoBehaviour
             else
             {
                 possibleMovements.Remove(ReverseMoveFinder());
+                int randomMovement = Random.Range(0, possibleMovements.Count);
+                transform.DOMove(transform.position + possibleMovements[randomMovement], reloadTime).SetEase(Ease.Linear);
+                lastMovement = possibleMovements[0];
+                lastMoveTime = Time.time;
 
             }
 
