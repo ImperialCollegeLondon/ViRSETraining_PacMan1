@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.XR;
 using DG.Tweening;
 using System;
+using Unity.VisualScripting;
 
 public class Modes : MonoBehaviour
 {
@@ -14,7 +15,6 @@ public class Modes : MonoBehaviour
     //Mode 3: Eyes returned
 
     public GameObject ghost;
-    private bool flicker = true;
     public GhostMovement ghostMovement;
     private float timer = 0f;
     private bool useColor1 = true;
@@ -25,7 +25,6 @@ public class Modes : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
     }
 
     // Update is called once per frame
