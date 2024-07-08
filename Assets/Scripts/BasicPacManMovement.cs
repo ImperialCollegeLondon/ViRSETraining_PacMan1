@@ -11,6 +11,7 @@ public class BasicPacManMovement : MonoBehaviour
     private float reloadTime = 0.25f;
     private float lastMoveTime = -0.25f;
     public Vector3 movementStore;
+    public Eating eatingScript;
 
     Dictionary<string, Vector3> movementStateDict = new Dictionary<string, Vector3>();
 
@@ -32,24 +33,28 @@ public class BasicPacManMovement : MonoBehaviour
                 transform.DOMove(transform.position + Vector3.forward, reloadTime).SetEase(Ease.Linear);
                 lastMoveTime = Time.time;
                 movementStore = movementStateDict["forward"];
+                eatingScript.PlayAnimation(true);
             }
             if (Input.GetKeyDown(KeyCode.A))
             {
                 transform.DOMove(transform.position + Vector3.left, reloadTime).SetEase(Ease.Linear);
                 lastMoveTime = Time.time;
                 movementStore = movementStateDict["left"];
+                eatingScript.PlayAnimation(true);
             }
             if (Input.GetKeyDown(KeyCode.S))
             {
                 transform.DOMove(transform.position + Vector3.back, reloadTime).SetEase(Ease.Linear);
                 lastMoveTime = Time.time;
                 movementStore = movementStateDict["back"];
+                eatingScript.PlayAnimation(true);
             }
             if (Input.GetKeyDown(KeyCode.D))
             {
                 transform.DOMove(transform.position + Vector3.right, reloadTime).SetEase(Ease.Linear);
                 lastMoveTime = Time.time;
                 movementStore = movementStateDict["right"];
+                eatingScript.PlayAnimation(true);
             }
         }
     }
