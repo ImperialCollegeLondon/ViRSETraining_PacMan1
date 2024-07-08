@@ -20,7 +20,7 @@ public class Pills : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name == "pacman")
+        if (other.gameObject.name == "PacManRoot")
         {
             gameObject.SetActive(false);
             Debug.Log("collide!");
