@@ -24,6 +24,8 @@ public class ScoreController : MonoBehaviour
     public GameObject heart1_w;
 
     public GameObject end_board;
+    private int pill_no = 362;
+    private bool game_end = false;
 
     // Start is called before the first frame update
     private void Awake()
@@ -42,25 +44,34 @@ public class ScoreController : MonoBehaviour
         add_score_world.text = ($"{current_score}");
         //Debug.Log(current_score);
 
-        if (current_live == 2)
+        if (current_live == 2 && game_end == false)
         {
             heart3.SetActive( false );
             heart3_w.SetActive(false);
         }
-        if (current_live == 1)
+        if (current_live == 1 && game_end == false)
         {
             heart2.SetActive(false);
             heart2_w.SetActive(false);
         }
-        if (current_live == 0)
+        if (current_live == 0 && game_end == false)
         {
             end_board.SetActive(true);
             heart1.SetActive(false);
             heart1_w.SetActive(false);
+            game_end = true;
             end_score.text = ($"{current_score}");
-            end_board_text.text = ("You Lose");
+            end_board_text.text = ("You Lose.");
         }
 
+
+        if (pill_no == 0 && game_end == false) 
+        {
+            end_board.SetActive(true);
+            game_end = true;
+            end_board_text.text = ("You Win!");
+            end_score.text = ($"{current_score}");
+        }
     }
 
     public void Score(float score)
@@ -71,5 +82,10 @@ public class ScoreController : MonoBehaviour
     public void Lives()
     {
         current_live--;
+    }
+
+    public void AllPills()
+    {
+        pill_no--;
     }
 }
