@@ -61,12 +61,20 @@ public class Modes : MonoBehaviour
                 timer = 0.0f;
                 useColor1 = !useColor1;
                 head.GetComponent<MeshRenderer>().material.color = useColor1 ? Color.blue : color1;
+                cylinder.GetComponent<MeshRenderer>().material.color = useColor1 ? Color.blue : color1;
+                leg1.GetComponent<MeshRenderer>().material.color = useColor1 ? Color.blue : color1;
+                leg2.GetComponent<MeshRenderer>().material.color = useColor1 ? Color.blue : color1;
+                leg3.GetComponent<MeshRenderer>().material.color = useColor1 ? Color.blue : color1;
             }
         }
         else
         {
             ghostMovement.mode = 1;
             head.GetComponent<MeshRenderer>().material.color = color1;
+            cylinder.GetComponent<MeshRenderer>().material.color = color1;
+            leg1.GetComponent<MeshRenderer>().material.color = color1;
+            leg2.GetComponent<MeshRenderer>().material.color = color1;
+            leg3.GetComponent<MeshRenderer>().material.color = color1;
         }
     }
     private void EyesReturn()
