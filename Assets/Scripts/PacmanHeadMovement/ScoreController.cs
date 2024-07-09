@@ -27,7 +27,7 @@ public class ScoreController : MonoBehaviour
 
     public GameObject end_board;
     public GameObject end_board2;
-    private int pill_no = 360;
+    private int pill_no = 356;
     private bool game_end = false;
 
     // Start is called before the first frame update
