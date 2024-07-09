@@ -34,7 +34,7 @@ public class ScoreController : MonoBehaviour
     }
     void Start()
     {
-        //end_board.SetActive(false);
+        end_board.SetActive(false);
     }
 
     // Update is called once per frame

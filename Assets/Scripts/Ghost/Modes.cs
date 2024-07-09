@@ -16,6 +16,11 @@ public class Modes : MonoBehaviour
 
 
     public GameObject head;
+    public GameObject cylinder;
+    public GameObject leg1;
+    public GameObject leg2;
+    public GameObject leg3;
+
     public GameObject ghost;
     public GhostMovement ghostMovement;
     private float timer = 0f;
