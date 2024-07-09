@@ -60,11 +60,11 @@ public class Modes : MonoBehaviour
             {
                 timer = 0.0f;
                 useColor1 = !useColor1;
-                head.GetComponent<MeshRenderer>().material.color = useColor1 ? Color.blue : color1;
-                cylinder.GetComponent<MeshRenderer>().material.color = useColor1 ? Color.blue : color1;
-                leg1.GetComponent<MeshRenderer>().material.color = useColor1 ? Color.blue : color1;
-                leg2.GetComponent<MeshRenderer>().material.color = useColor1 ? Color.blue : color1;
-                leg3.GetComponent<MeshRenderer>().material.color = useColor1 ? Color.blue : color1;
+                head.GetComponent<MeshRenderer>().material.color = useColor1 ? Color.blue : Color.green;
+                cylinder.GetComponent<MeshRenderer>().material.color = useColor1 ? Color.blue : Color.green;
+                leg1.GetComponent<MeshRenderer>().material.color = useColor1 ? Color.blue : Color.green;
+                leg2.GetComponent<MeshRenderer>().material.color = useColor1 ? Color.blue : Color.green;
+                leg3.GetComponent<MeshRenderer>().material.color = useColor1 ? Color.blue : Color.green;
             }
         }
         else
