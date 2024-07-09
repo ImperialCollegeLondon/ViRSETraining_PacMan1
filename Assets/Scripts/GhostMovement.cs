@@ -114,11 +114,13 @@ public class GhostMovement : MonoBehaviour
         if (transform.position.x > 14f)
         {
             transform.position = new Vector3(-14f, 0f, 0f);
+            lastMoveTime = Time.time - 0.1f;
         }
 
         if (transform.position.x < -14f)
         {
             transform.position = new Vector3(14f, 0f, 0f);
+            lastMoveTime = Time.time - 0.1f;
         }
     }
 }
