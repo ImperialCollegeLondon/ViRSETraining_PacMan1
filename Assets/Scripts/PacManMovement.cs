@@ -1,9 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using DG.Tweening;
-using System.Runtime.CompilerServices;
-using Unity.VisualScripting.ReorderableList;
 
 public class PacManMovement : MonoBehaviour
 {
