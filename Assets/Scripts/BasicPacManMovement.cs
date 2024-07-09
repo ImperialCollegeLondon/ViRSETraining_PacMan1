@@ -13,7 +13,7 @@ public class BasicPacManMovement : MonoBehaviour
     public Vector3 movementStore;
     public Eating eatingScript;
 
-    public GhostMovement ghostMovement;
+    public PowerPillEatenTime powerPillEaten;
 
     Dictionary<string, Vector3> movementStateDict = new Dictionary<string, Vector3>();
 
@@ -109,11 +109,13 @@ public class BasicPacManMovement : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("Hit" + other.gameObject.name);
         if (other.gameObject.name == "Inky")
         {
-            if (ghostMovement.mode == 2)
+            Debug.Log("Space Inky");
+            if (PowerPillEatenTime.instance.ghosts[1].GetComponent<GhostMovement>().mode == 2)
             {
-                ghostMovement.mode = 3;
+                PowerPillEatenTime.instance.ghosts[1].GetComponent<GhostMovement>().mode = 3;
                 ScoreController.instance.Score(200);
             }else
             {
@@ -123,9 +125,10 @@ public class BasicPacManMovement : MonoBehaviour
         }
         if (other.gameObject.name == "Pinky")
         {
-            if (ghostMovement.mode == 2)
+            Debug.Log("Space Pinky");
+            if (PowerPillEatenTime.instance.ghosts[2].GetComponent<GhostMovement>().mode == 2)
             {
-                ghostMovement.mode = 3;
+                PowerPillEatenTime.instance.ghosts[2].GetComponent<GhostMovement>().mode = 3;
                 ScoreController.instance.Score(200);
             }else
             {
@@ -135,9 +138,10 @@ public class BasicPacManMovement : MonoBehaviour
         }
         if (other.gameObject.name == "Blinky")
         {
-            if (ghostMovement.mode == 2)
+            Debug.Log("Space Blinky");
+            if (PowerPillEatenTime.instance.ghosts[0].GetComponent<GhostMovement>().mode == 2)
             {
-                ghostMovement.mode = 3;
+                PowerPillEatenTime.instance.ghosts[0].GetComponent<GhostMovement>().mode = 3;
                 ScoreController.instance.Score(200);
             }else
             {
@@ -147,9 +151,10 @@ public class BasicPacManMovement : MonoBehaviour
         }
         if (other.gameObject.name == "Clyde")
         {
-            if (ghostMovement.mode == 2)
+            Debug.Log("Space Clyde");
+            if (PowerPillEatenTime.instance.ghosts[3].GetComponent<GhostMovement>().mode == 2)
             {
-                ghostMovement.mode = 3;
+                PowerPillEatenTime.instance.ghosts[3].GetComponent<GhostMovement>().mode = 3;
                 ScoreController.instance.Score(200);
             }
             else

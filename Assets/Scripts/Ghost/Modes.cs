@@ -19,7 +19,7 @@ public class Modes : MonoBehaviour
     public GameObject ghost;
     public GhostMovement ghostMovement;
     private float timer = 0f;
-    private bool useColor1 = true;
+    public bool useColor1 = true;
     public Color color1;
 
     private int lastMode = 1;
@@ -50,24 +50,19 @@ public class Modes : MonoBehaviour
     {
         if (time + 5f > Time.time)
         {
-
             timer += Time.deltaTime;
             if (timer > 0.5f)
             {
                 timer = 0.0f;
                 useColor1 = !useColor1;
-                head.GetComponent<MeshRenderer>().material.color = useColor1 ? Color.blue : Color.green;
+                head.GetComponent<MeshRenderer>().material.color = useColor1 ? Color.blue : color1;
             }
         }
         else
         {
             ghostMovement.mode = 1;
-
-
             head.GetComponent<MeshRenderer>().material.color = color1;
-
         }
-        
     }
     private void EyesReturn()
     {
@@ -88,6 +83,7 @@ public class Modes : MonoBehaviour
     {
         foreach (Transform child in ghost.transform)
             child.gameObject.SetActive(true);
+        
         ghostMovement.mode = 1;
 
     }
