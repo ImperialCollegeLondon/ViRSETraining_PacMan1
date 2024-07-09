@@ -20817,7 +20817,7 @@ MonoBehaviour:
   ghost: {fileID: 537540316}
   ghostMovement: {fileID: 537540325}
   useColor1: 1
-  color1: {r: 0, g: 1, b: 0, a: 0}
+  color1: {r: 0.9254902, g: 0.105882354, b: 0.90588236, a: 0}
 --- !u!23 &537540320
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -43909,7 +43909,7 @@ MonoBehaviour:
   ghost: {fileID: 1096567931}
   ghostMovement: {fileID: 1096567940}
   useColor1: 1
-  color1: {r: 0, g: 1, b: 0, a: 0}
+  color1: {r: 0.16862746, g: 0.7921569, b: 0.94509804, a: 0}
 --- !u!23 &1096567935
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -46169,7 +46169,7 @@ MonoBehaviour:
   ghost: {fileID: 1173577843}
   ghostMovement: {fileID: 1173577848}
   useColor1: 1
-  color1: {r: 0, g: 1, b: 0, a: 0}
+  color1: {r: 0.9254902, g: 0.105882354, b: 0.105882354, a: 0}
 --- !u!23 &1173577847
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -83288,7 +83288,7 @@ MonoBehaviour:
   ghost: {fileID: 2091861511}
   ghostMovement: {fileID: 2091861516}
   useColor1: 1
-  color1: {r: 0, g: 1, b: 0, a: 0}
+  color1: {r: 1, g: 0.8039216, b: 0, a: 0}
 --- !u!23 &2091861515
 MeshRenderer:
   m_ObjectHideFlags: 0
